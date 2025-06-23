@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site sobre Biotipos - Ectomorfo, Mesomorfo e Endomorfo">
+    <title>Biotipos - Saiba o Seu!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sites.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+<body>
+   
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo/1668006602579.png" alt="Logo do site">
+            </div>
+            <!-- Ícone de menu para dispositivos móveis -->
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#biotipos">Biotipos</a></li>
+                <li><a href="#teste">Teste de Biotipo</a></li>
+                <li><a href="#dieta-exercicio">Dieta & Exercício</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+   
+    <section id="home">
+        <div class="banner">
+        </div>
+    </section>
+
+
+<section id="biotipos" class="section">
+
+    <div class="biotipo-cards">
+        <div class="card">
+                <div id="ecto-container" style="width: 100%; height: 400px;"></div>
+            <h3>Ectomorfo</h3>
+            <p>Corpo magro, dificuldade em ganhar peso, metabolismo acelerado.</p>
+        </div>
+
+        <div class="card">
+         
+                <div id="meso-container" style="width: 100%; height: 400px;"></div>
+            <h3>Mesomorfo</h3>
+            <p>Corpo atlético, facilidade em ganhar massa muscular.</p>
+        </div>
+        <div class="card">
+            <div id="endomorfo-container" style="width: 100%; height: 400px;"></div>
+            <h3>Endomorfo</h3>
+            <p>Propensão a ganhar gordura, metabolismo mais lento.</p>
+        </div>
+        
+    </div>
+</section>
+
+
+   
+<div class="container">
+    
+    <section id="teste" class="section">
+        <h2>Teste de Biotipo</h2>
+
+        <form id="biotipoForm">
+            <h3>1. Minha estrutura óssea é:</h3>
+            <select id="estruturaOssea" name="estruturaOssea">
+                <option value="bem-larga">Bem larga</option>
+                <option value="larga-e-media">Larga e média</option>
+                <option value="pequena">Pequena com aparência frágil</option>
+            </select>
+
+            <h3>2. O seu corpo geralmente tem a tendência:</h3>
+            <select id="tendenciaCorporal" name="tendenciaCorporal">
+                <option value="armazenar-gordura">Armazenar gordura</option>
+                <option value="magro-e-musculoso">Magro e musculoso</option>
+                <option value="sempre-bem-magro">Sempre estar bem magro</option>
+            </select>
+
+            <h3>3. Você geralmente tem uma aparência:</h3>
+            <p>- Homens respondam aqui:</p>
+            <select id="aparenciaHomens" name="aparenciaHomens">
+                <option value="" disabled selected hidden>Selecione sua aparência</option>
+                <option value="redondo-e-rechonchudo">Redondo e rechonchudo</option>
+                <option value="quadrado-e-robusto">Quadrado e robusto</option>
+                <option value="longo-e-fino">Longo e fino</option>
+            </select>
+                
+            <p>- Mulheres respondam aqui:</p>
+            <select id="aparenciaMulheres" name="aparenciaMulheres" >
+                <option value="" disabled selected hidden>Selecione sua aparência</option>
+                <option value="formato-pera">Formato PERA</option>
+                <option value="formato-ampulheta">Formato Ampulheta</option>
+                <option value="formato-reto">Formato reto "Régua"</option>
+            </select>
+
+            <h3>4. Quando criança eu era:</h3>
+            <select id="infancia" name="infancia">
+                <option value="gordinho">Gordinho</option>
+                <option value="normal">Normal</option>
+                <option value="magrinho">Magrinho</option>
+            </select>
+
+            <button type="button" onclick="calcularBiotipo()">Descobrir Biotipo</button>
+        </form>
+
+        <p id="resultadoBiotipo"></p>
+    </section>
+</div>
+
+   
+    <section id="dieta-exercicio" class="section">
+        <h2>Dieta & Exercício para cada Biotipo</h2>
+        <p>Recomendações personalizadas de acordo com o seu biotipo.</p>
+    
+        <div class="biotipos-container">
+            <article class="biotipo-card">
+                <h3>Ectomorfos</h3>
+                <p>Ectomorfos possuem um metabolismo rápido, dificultando o ganho de peso. Para uma dieta eficaz, é importante consumir mais calorias do que se gasta, com 5-6 refeições diárias que incluam carboidratos complexos, proteínas magras e gorduras saudáveis.</p>
+                <p>Nos exercícios, foque em treinos de força com pesos pesados e poucas repetições, priorizando o descanso e limitando o cardio para promover o ganho de massa.</p>
+            </article>
+    
+            <article class="biotipo-card">
+                <h3>Mesomorfos</h3>
+                <p>Mesomorfos têm uma estrutura atlética e ganham massa muscular facilmente. Para a dieta, recomenda-se manter um equilíbrio de macronutrientes, com ênfase em proteínas, carboidratos complexos e gorduras saudáveis em 4-5 refeições por dia.</p>
+                <p>Nos exercícios, foque em treinos de força e resistência, alternando entre séries altas e baixas, e inclua exercícios aeróbicos moderados para melhorar a definição muscular.</p>
+            </article>
+            
+    
+            <article class="biotipo-card">
+                <h3>Endomorfos</h3>
+                <p>Endomorfos tendem a ganhar peso facilmente e têm um metabolismo mais lento. Para a dieta, é importante consumir refeições controladas em calorias, focando em proteínas magras e reduzindo carboidratos simples.</p>
+                <p>Nos exercícios, priorize treinos de força e resistência, com ênfase em séries mais longas e treinamento cardiovascular para auxiliar na queima de gordura.</p>
+            </article>
+            
+        </div>
+    </section>
+    
+
+
+    <section id="blog" class="section">
+        <h2>Blog</h2>
+        <div class="card-cont">
+            <h3>Mantenha a Saúde e o Bem-Estar: Pequenos Passos, Grandes Resultados</h3>
+            <p>
+                O caminho para uma vida saudável não precisa ser difícil. Pequenas mudanças no seu dia a dia podem fazer uma grande diferença. 
+                Comece com um simples hábito, como beber mais água ou fazer uma caminhada de 10 minutos diariamente.
+                O importante é dar o primeiro passo e manter a constância.
+            </p>
+            <p>
+                Lembre-se: seu corpo é o seu templo. Cuide dele com alimentos nutritivos e equilibrados. Um prato colorido é um prato saudável!
+                Movimente-se um pouco todos os dias, seja com uma atividade física que você goste ou com pequenas ações, como usar as escadas no lugar do elevador.
+            </p>
+            <p>
+                A saúde mental também é fundamental. Respire fundo, reserve alguns minutos para relaxar e praticar a gratidão. 
+                A vida é uma jornada, e cuidar de si mesmo é uma parte essencial dessa jornada.
+            </p>
+            <p>
+                <strong>"A maior riqueza é a saúde."</strong> – Viva cada dia com equilíbrio, gratidão e cuidado com seu corpo e sua mente!
+            </p>
+        </div>
+    </section>
+    
+    
+
+
+    <section id="contato" class="section">
+        <h2>Contato</h2>
+        <form>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+    <div class="whats">
+        <a href="https://wa.me/5599984328015" target="_blank">
+        <img src="logo/whatsapp.png" width="72" alt="Fale conosco pelo whatsapp" title="Fale conosco pelo whatsapp">
+        </a>
+    </div>
+  
+    <footer>
+        <div id="footer_content">
+            <div id="footer_contacts">
+                <img src="logo/1668006602579.png" alt="">
+               
+
+                <div id="footer_social_media">
+                    <a href="https://www.instagram.com/fisioterapia.unigrande/profilecard/?igsh=eTZzcTZhejIzenlm" class="footer-link" id="instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" class="footer-link" id="facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+
+                </div>
+            </div>
+            
+            <ul class="footer-list">
+                <li>
+                    <h3>Blog</h3>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Tech</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Adventures</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Music</a>
+                </li>
+            </ul>
+
+            <ul class="footer-list">
+                <li>
+                    <h3>Products</h3>
+                </li>
+                <li>
+                  
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Desktop</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Cloud</a>
+                </li>
+            </ul>
+
+            <div id="footer_subscribe">
+                <h3>Subscribe</h3>
+
+                <p>
+                    Enter your e-mail to get notified about
+                    our news solutions
+                </p>
+
+                <div id="input_group">
+                    <input type="email" id="email">
+                    <button>
+                        <i class="fa-regular fa-envelope"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer_copyright">
+            &#169;
+            2024 all rights reserved | Direitos autorais: Francisco Erik
+        </div>
+    </footer>
+
+    
+    <script src="scripti.js"></script>
+    <script src="animacao.js"></script> 
+    <script src="ecto.js"></script>
+    <script src="navbar.js"></script>
+
+
+</body>
+</html>
