@@ -71,6 +71,10 @@ nav ul li a {
     cursor: pointer;
 }
 
+.menu-toggle i {
+  display: none;
+}
+
 .menu-toggle span {
     width: 30px;
     height: 3px;
@@ -616,18 +620,84 @@ button, .btn, .btn-banner, input[type="submit"] {
   .banner-content {
     padding: 1.5rem 0.5rem;
   }
-}
-@media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 0;
+  .menu-toggle i {
+    display: block;
+    font-size: 2.2rem;
+    color: #222;
+    cursor: pointer;
+    padding: 0.3em 0.5em;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  .menu-toggle i:active, .menu-toggle.active i {
+    background: #f0f4fa;
+  }
+  .menu-toggle span {
+    display: none !important;
+  }
+  .menu-toggle.menu-open i {
+    display: none !important;
   }
   #nav-links {
+    display: none !important;
+  }
+  #nav-links.menu-active {
+    display: flex !important;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100vw;
+    min-height: 80vh;
+    background: #fff;
+    box-shadow: 0 8px 32px rgba(58,143,223,0.10);
+    padding-top: 2.5rem;
+    z-index: 1000;
+  }
+}
+@media (max-width: 600px) {
+  .logo img {
+    max-width: 120px;
+    margin: 1.2rem 0 0 1.2rem;
+  }
+  .menu-toggle {
+    margin-left: 1.2rem;
+    margin-top: 1.2rem;
+    z-index: 1100;
+  }
+  nav {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0.5rem 0;
+    position: relative;
+  }
+  #nav-links.menu-active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100vw;
+    min-height: 80vh;
+    background: #fff;
+    box-shadow: 0 8px 32px rgba(58,143,223,0.10);
+    padding-top: 2.5rem;
+    z-index: 1000;
+  }
+  #nav-links.menu-active li {
+    margin: 1.2rem 0;
+  }
+  #nav-links {
+    width: 100vw;
+    margin-top: 0;
     gap: 0.5rem;
-    width: 100%;
-    margin-top: 0.7rem;
+    background: none;
+    box-shadow: none;
+    position: static;
   }
   .biotipo-cards {
     flex-direction: column;
