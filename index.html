@@ -6,18 +6,20 @@
     <meta name="description" content="Site sobre Biotipos - Ectomorfo, Mesomorfo e Endomorfo">
     <title>Biotipos - Saiba o Seu!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="sites.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/sites.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 <body>
    
     <header>
         <nav>
             <div class="logo">
-                <img src="logo/1668006602579.png" alt="Logo do site">
+                <img src="assets/img/1668006602579.png" alt="Logo do site">
             </div>
             <!-- Ícone de menu para dispositivos móveis -->
             <div class="menu-toggle" id="menu-toggle">
@@ -38,28 +40,33 @@
     
 
    
-    <section id="home">
+    <section id="home" data-aos="fade-up">
         <div class="banner">
+            <div class="banner-content">
+                <h1>Descubra seu Biotipo!</h1>
+                <p>Saiba como potencializar sua saúde e resultados com informações personalizadas.</p>
+                <a href="#teste" class="btn-banner"><span>Fazer o Teste</span> <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
         </div>
     </section>
 
 
-<section id="biotipos" class="section">
+<section id="biotipos" class="section" data-aos="fade-up">
 
     <div class="biotipo-cards">
-        <div class="card">
+        <div class="card" data-aos="fade-up">
                 <div id="ecto-container" style="width: 100%; height: 400px;"></div>
             <h3>Ectomorfo</h3>
             <p>Corpo magro, dificuldade em ganhar peso, metabolismo acelerado.</p>
         </div>
 
-        <div class="card">
+        <div class="card" data-aos="fade-up">
          
                 <div id="meso-container" style="width: 100%; height: 400px;"></div>
             <h3>Mesomorfo</h3>
             <p>Corpo atlético, facilidade em ganhar massa muscular.</p>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-up">
             <div id="endomorfo-container" style="width: 100%; height: 400px;"></div>
             <h3>Endomorfo</h3>
             <p>Propensão a ganhar gordura, metabolismo mais lento.</p>
@@ -72,7 +79,7 @@
    
 <div class="container">
     
-    <section id="teste" class="section">
+    <section id="teste" class="section" data-aos="fade-up">
         <h2>Teste de Biotipo</h2>
 
         <form id="biotipoForm">
@@ -114,7 +121,7 @@
                 <option value="magrinho">Magrinho</option>
             </select>
 
-            <button type="button" onclick="calcularBiotipo()">Descobrir Biotipo</button>
+            <button type="button" onclick="calcularBiotipo()" data-aos="fade-up">Descobrir Biotipo</button>
         </form>
 
         <p id="resultadoBiotipo"></p>
@@ -122,7 +129,7 @@
 </div>
 
    
-    <section id="dieta-exercicio" class="section">
+    <section id="dieta-exercicio" class="section" data-aos="fade-up">
         <h2>Dieta & Exercício para cada Biotipo</h2>
         <p>Recomendações personalizadas de acordo com o seu biotipo.</p>
     
@@ -151,7 +158,7 @@
     
 
 
-    <section id="blog" class="section">
+    <section id="blog" class="section" data-aos="fade-up">
         <h2>Blog</h2>
         <div class="card-cont">
             <h3>Mantenha a Saúde e o Bem-Estar: Pequenos Passos, Grandes Resultados</h3>
@@ -177,31 +184,39 @@
     
 
 
-    <section id="contato" class="section">
+    <section id="contato" class="section" data-aos="fade-up">
         <h2>Contato</h2>
-        <form>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="mensagem">Mensagem:</label>
-            <textarea id="mensagem" name="mensagem" required></textarea>
-
+        <form action="https://formsubmit.co/expresscortes22@gmail.com" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="mensagem">Mensagem:</label>
+                <i class="fa-solid fa-message"></i>
+                <textarea id="mensagem" name="mensagem" required></textarea>
+            </div>
+            <!-- Honeypot anti-spam -->
+            <input type="text" name="_honey" style="display:none">
             <button type="submit">Enviar</button>
         </form>
     </section>
     <div class="whats">
         <a href="https://wa.me/5599984328015" target="_blank">
-        <img src="logo/whatsapp.png" width="72" alt="Fale conosco pelo whatsapp" title="Fale conosco pelo whatsapp">
+        <img src="assets/img/whatsapp.png" width="72" alt="Fale conosco pelo whatsapp" title="Fale conosco pelo whatsapp">
         </a>
     </div>
   
     <footer>
         <div id="footer_content">
             <div id="footer_contacts">
-                <img src="logo/1668006602579.png" alt="">
+                <img src="assets/img/1668006602579.png" alt="">
                
 
                 <div id="footer_social_media">
@@ -271,10 +286,22 @@
     </footer>
 
     
-    <script src="scripti.js"></script>
-    <script src="animacao.js"></script> 
-    <script src="ecto.js"></script>
-    <script src="navbar.js"></script>
+    <script src="assets/js/scripti.js"></script>
+    <script src="assets/js/animacao.js"></script> 
+    <script src="assets/js/ecto.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.querySelector('form[action^="https://formsubmit.co"]');
+  if(form) {
+    form.addEventListener('submit', function() {
+      alert('mensagem enviada, obrigado');
+    });
+  }
+});
+</script>
+    <script>AOS.init();</script>
 
 
 </body>

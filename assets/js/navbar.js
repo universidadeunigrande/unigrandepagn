@@ -2,9 +2,9 @@
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.getElementById('nav-links');
 
-// Adiciona um evento de clique ao ícone do menu
-menuToggle.addEventListener('click', () => {
-    // Alterna a classe 'menu-active' para mostrar ou esconder os links
+// Animação e transição para navbar mobile
+menuToggle.addEventListener('click', function() {
+    menuToggle.classList.toggle('active');
     navLinks.classList.toggle('menu-active');
 });
 

@@ -1,0 +1,675 @@
+/* Reset para o CSS original, mantendo apenas ajustes de caminhos de assets se necessário */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Paleta de cores moderna baseada no logo */
+:root {
+  --primary: #3a8fdf; /* azul principal */
+  --primary-dark: #2563a6;
+  --secondary: #2eccb6; /* verde água */
+  --secondary-dark: #1e9e8a;
+  --background: #f4f8fb;
+  --surface: #fff;
+  --text: #222;
+  --text-light: #fff;
+  --shadow: 0 4px 16px rgba(58,143,223,0.08);
+  --radius: 14px;
+}
+
+body, * {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: #f4f4f4;
+    color: black;
+    padding: 0rem 0rem;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    flex: 1;
+    max-width: 150px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    flex: 2;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin-left: 1rem;
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: black;
+    margin: 4px;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
+    nav ul li a {
+        padding: 10px;
+        display: block;
+        width: 100%;
+    }
+    .logo img {
+        max-width: 100%;
+        height: auto;
+    }
+    .menu-active nav ul {
+        display: flex;
+    }
+    #nav-links.menu-active {
+        display: flex;
+    }
+}
+
+.menu-active .menu-toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-active .menu-toggle span:nth-child(2) {
+    opacity: 0;
+}
+.menu-active .menu-toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Banner com blur e overlay de degradê */
+.banner {
+  position: relative;
+  background: url('../img/imagembiotipos.jpg') center center/cover no-repeat;
+  min-height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #3a8fdfcc 0%, #ff9807cc 100%);
+  z-index: 1;
+}
+.banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(7px);
+  z-index: 2;
+}
+.banner-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2.5rem 1rem;
+  animation: fadeInDown 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: none; }
+}
+.banner-content p {
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+/* Botão com ícone, sombra e efeito hover */
+.btn-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  background: var(--primary);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.8rem 2.2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 16px rgba(58,143,223,0.18);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.btn-banner i {
+  font-size: 1.2em;
+}
+.btn-banner:hover {
+  background: var(--secondary);
+  transform: scale(1.07);
+  box-shadow: 0 8px 24px rgba(46,204,182,0.18);
+}
+
+.section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.section, .container {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 3rem auto;
+  padding: 3rem 2rem;
+  max-width: 1100px;
+}
+
+.biotipo-card {
+    position: relative;
+    background-image: url('../img/img.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+    z-index: 1;
+}
+
+.biotipo-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: -1;
+}
+
+#biotipos p {
+    margin: 2rem 0;
+}
+
+.card ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.card ul li {
+    margin-bottom: 0.5rem;
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+img {
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(58,143,223,0.07);
+}
+
+form {
+    margin: 2.5rem auto;
+    max-width: 500px;
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background: #7f37c9;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+form button:hover {
+    background: #25d366;
+}
+
+button, .btn, .btn-banner, input[type="submit"] {
+  background: var(--primary);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.7rem 2rem;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  transition: background 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+button:hover, .btn:hover, .btn-banner:hover, input[type="submit"]:hover {
+  background: var(--secondary);
+  transform: scale(1.04);
+}
+
+#blog {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+#blog h2 {
+    color: #7f37c9;
+    margin-bottom: 1rem;
+}
+
+#blog h3 {
+    color: #25d366;
+    margin-bottom: 1rem;
+}
+
+#blog p {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+#blog p::first-letter {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #7f37c9;
+}
+
+#blog a {
+    color: #7f37c9;
+    text-decoration: underline;
+}
+
+#blog a:hover {
+    color: #25d366;
+}
+
+.biotipo-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    max-width: 1200px;
+}
+
+.biotipo-cards .card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 2.5rem 1.5rem;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.biotipo-cards .card, .biotipo-card, .card-cont, form {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: none;
+}
+
+.card .endomorfo-container,
+.card .meso-container,
+.card .ecto-container {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 1rem;
+}
+
+.card-cont {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 2.5rem auto;
+    max-width: 800px;
+    padding: 2.5rem 1.5rem;
+}
+
+.card-cont h3 {
+    color: #25d366;
+    margin-bottom: 1rem;
+}
+
+.card-cont p {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.card-cont strong {
+    color: #7f37c9;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--primary-dark);
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+a, .footer-link {
+  color: var(--primary);
+  transition: color 0.2s;
+}
+
+a:hover, .footer-link:hover {
+  color: var(--secondary-dark);
+}
+
+footer {
+  margin-top: 3rem;
+}
+
+/* Navbar underline animada e sticky */
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+#nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+#nav-links a {
+  position: relative;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  overflow: hidden;
+}
+#nav-links a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: 0.2em;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+#nav-links a:hover::after {
+  transform: scaleX(1);
+}
+#nav-links a:hover {
+  color: var(--primary-dark);
+}
+
+/* Logotipo menor e centralizado verticalmente */
+.logo img {
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 1rem 0 0;
+}
+
+/* Botão WhatsApp fixo no canto direito */
+.whats {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1200;
+  box-shadow: 0 4px 16px rgba(46,204,182,0.18);
+  border-radius: 50%;
+  background: #25d366;
+  padding: 0.3rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.whats img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+}
+.whats:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px rgba(46,204,182,0.25);
+}
+
+/* Centralização e grid dos cards */
+.biotipo-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.biotipo-cards .card {
+  flex: 1 1 300px;
+  max-width: 340px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section, .container, .card-cont, form {
+  margin-bottom: 2.5rem;
+}
+
+form {
+  width: 100%;
+  max-width: 420px;
+  margin: 2.5rem auto;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 24px rgba(58,143,223,0.10);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form label {
+  font-weight: 500;
+  color: var(--primary-dark);
+  margin-bottom: 0.3rem;
+  align-self: flex-start;
+}
+.form-group {
+  width: 100%;
+  position: relative;
+  margin-bottom: 1.3rem;
+}
+.form-group i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #b0b8c9;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+form input, form select, form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.5rem;
+  border-radius: var(--radius);
+  border: 1.5px solid #e3e8f7;
+  font-size: 1rem;
+  background: #f8faff;
+  color: #222;
+  box-shadow: 0 2px 8px rgba(58,143,223,0.04);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+form input:focus, form select:focus, form textarea:focus {
+  border: 1.5px solid var(--primary);
+  box-shadow: 0 4px 16px rgba(58,143,223,0.10);
+  outline: none;
+  background: #fff;
+}
+form button, form input[type="submit"] {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.8rem 2.2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 16px rgba(58,143,223,0.12);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+form button:hover, form input[type="submit"]:hover {
+  background: var(--primary-dark);
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(58,143,223,0.18);
+}
+
+input, select, textarea {
+  width: 100%;
+  margin-bottom: 1.2rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid #dbeafe;
+  font-size: 1rem;
+}
+
+button, .btn, .btn-banner, input[type="submit"] {
+  margin-top: 0.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .section, .container, .card-cont {
+    max-width: 98vw;
+    padding: 2rem 1vw;
+  }
+  nav {
+    padding: 0.7rem 1vw;
+  }
+  .banner-content {
+    padding: 1.5rem 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+  #nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 0.7rem;
+  }
+  .biotipo-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .section, .container, .card-cont, form {
+    padding: 1.2rem 0.5rem;
+    max-width: 100vw;
+  }
+  .logo img {
+    max-width: 100px;
+    margin: 0 0 0 0.5rem;
+  }
+  .btn-banner {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.8rem 0.5rem;
+  }
+  .whats {
+    bottom: 12px;
+    right: 12px;
+    padding: 0.15rem;
+  }
+  .whats img {
+    width: 44px;
+    height: 44px;
+  }
+  form {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+  }
+}
+
+/* Animações AOS */
+[data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 0.8s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: none;
+}

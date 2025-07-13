@@ -93,10 +93,10 @@ const endoLightConfig = {
 };
 
 // Carregar e renderizar o modelo Ectomorfo com sua iluminação
-loadModel('ecto-container', 'ecto.glb', ectoLightConfig);
+loadModel('ecto-container', 'assets/models/ecto.glb', ectoLightConfig);
 
 // Carregar e renderizar o modelo Mesomorfo com iluminação personalizada
-loadModel('meso-container', 'meso.glb', mesoLightConfig);
+loadModel('meso-container', 'assets/models/meso.glb', mesoLightConfig);
 
 // Carregar e renderizar o modelo Endomorfo com sua iluminação
-loadModel('endomorfo-container', 'endomorfo1.glb', endoLightConfig);
+loadModel('endomorfo-container', 'assets/models/endomorfo1.glb', endoLightConfig);
